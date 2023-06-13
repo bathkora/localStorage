@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Thumb from "./components/Thumb";
+import videos from "./data/data.js";
 
 function App() {
   return (
@@ -8,12 +9,17 @@ function App() {
       <div className="App">
         <h1>Thumbnail Page</h1>
         <div className="doi">
-          <Thumb title="Lots of Fun" views="10M" channel="CodeWithMe"></Thumb>
-          <Thumb title="New to React" views="13M" channel="CodeWithMe"></Thumb>
-          <Thumb title="Explore with React" views="22M" channel="CodeWithMe"></Thumb>
-          <Thumb title="Explore with React" views="22M" channel="CodeWithMe"></Thumb>
-          <Thumb title="Explore with React" views="22M" channel="CodeWithMe"></Thumb>
-          
+          {videos.map((video) => (
+            <Thumb
+            key={video.id}
+              id={video.id}
+              title={video.title}
+              views={video.views}
+              channel={video.channel}
+              verified={video.verified}
+              time={video.time}
+            ></Thumb>
+          ))}
         </div>
       </div>
     </>
